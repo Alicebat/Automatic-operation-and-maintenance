@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <link rel="canonical" href="https://blog.csdn.net/Songruibb/article/details/79999688"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="referrer" content="always">
+    <meta name="description" content="转自：https://www.cnblogs.com/yufeihlf/p/5726619.htmlpython发邮件需要掌握两个模块的用法，smtplib和email，这俩模块是python自带的，只需import即可使用。smtplib模块主要负责发送邮件，email模块主要负责构造邮件。smtplib模块主要负责发送邮件：是一个发送邮件的动作，连接邮箱服务器，登录邮箱，发送邮件（有发件人，收..." />
+    <meta name="keywords" content="python自动发邮件" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848">
+    <script src="https://csdnimg.cn/release/phoenix/vendor/tingyun/tingyun-rum-blog.js"></script>
+
+    <link href="https://csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <title>python自动发邮件 - CSDN博客</title>
+
+            <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/detail-7f7dc27871.min.css">
+        <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/themes/skin-ink/skin-ink-29a6f69188.min.css">
+
+    <script type="text/javascript">
+        var username = "Songruibb";
+        var blog_address = "https://blog.csdn.net/songruibb";
+        var static_host = "https://csdnimg.cn/release/phoenix/";
+        var currentUserName = "qq_41570526";
+        var isShowAds = true;
+        var isOwner = false;
+        var loginUrl = "https://passport.csdn.net/account/login?from=https://blog.csdn.net/Songruibb/article/details/79999688"
+        var blogUrl = "https://blog.csdn.net/";
+        //页面皮肤样式
+        var curSkin = "skin-ink";
+    </script>
+    <script type="text/javascript">
+        // Traffic Stats of the entire Web site By baidu
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?6bcd52f51e9b3dce32bec4a3997715ac";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        // Traffic Stats of the entire Web site By baidu end
+    </script>
+    <script src="https://csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="https://csdnimg.cn/rabbit/exposure-click/main-1.0.6.js"></script>
+    <!-- 新版上报 -->
+    <script src="//g.csdnimg.cn/track/1.1.1/track.js" type="text/javascript"></script>
+    <!-- 新版上报end -->
+            <link rel="stylesheet" href="https://csdnimg.cn/public/sandalstrap/1.3/css/sandalstrap.min.css">
+    <style>
+        .MathJax, .MathJax_Message, .MathJax_Preview{
+            display: none
+        }
+    </style>
+</head>
+<body>
+    <link rel="stylesheet" href="https://csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css">
+    <script id="toolbar-tpl-scriptId" src="https://csdnimg.cn/public/common/toolbar/js/content_toolbar.js" type="text/javascript" domain="https://blog.csdn.net/"></script>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/blog_code-c3a0c33d5c.css">
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.css">
+<script type="text/javascript" src="//static.mediav.com/js/mvf_news_feed.js"></script>
+<div style="display:none;">
+	<img src="" onerror='setTimeout(function(){if(!/(csdn.net|iteye.com|baiducontent.com|googleusercontent.com|360webcache.com|sogoucdn.com|bingj.com|baidu.com)$/.test(window.location.hostname)){window.location.href="\x68\x74\x74\x70\x73\x3a\x2f\x2f\x77\x77\x77\x2e\x63\x73\x64\x6e\x2e\x6e\x65\x74"}},3000);'>
+</div>
+<link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/chart-3456820cac.css" />
+
+
+
+<script src="https://dup.baidustatic.com/js/ds.js"></script>
+<div class="container clearfix" id="mainBox">
+		<!-- <div id="breadcrumbs">
+			<span><a href="https://blog.csdn.net/">博客首页</a></span>
+			<i>></i>
+			<span><a href="https://blog.csdn.net/songruibb">宝贝散养地</a></span>
+			<i>></i>
+			<span>python自动发邮件</span>
+		</div> -->
+    <main>
+        <div class="blog-content-box">
+	<div class="article-header-box">
+		<div class="article-header">
+			<div class="article-title-box">
+				<span class="article-type type-2 float-left">转</span>				<h1 class="title-article">python自动发邮件</h1>
+			</div>
+			<div class="article-info-box">
+				<div class="article-bar-top d-flex">
+																				<span class="time">2018年04月19日 08:57:09</span>
+					<div class="float-right">
+						<span class="read-count">阅读数：560</span>
+																	</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<article>
+		<div id="article_content" class="article_content clearfix csdn-tracking-statistics" data-pid="blog"  data-mod=popu_307  data-dsm = "post" >
+                    <link rel="stylesheet" href="https://csdnimg.cn/release/phoenix/template/css/ck_htmledit_views-e2445db1a8.css" />
+						<div class="htmledit_views">
+                <p>转自：https://www.cnblogs.com/yufeihlf/p/5726619.html</p><p></p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">python发邮件需要掌握两个模块的用法，smtplib和email，这俩模块是python自带的，只需import即可使用。smtplib模块主要负责发送邮件，email模块主要负责构造邮件。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">smtplib模块主要负责发送邮件：是一个发送邮件的动作，连接邮箱服务器，登录邮箱，发送邮件（有发件人，收信人，邮件内容）。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">email模块主要负责构造邮件：指的是邮箱页面显示的一些构造，如发件人，收件人，主题，正文，附件等。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);"><img src="https://images2015.cnblogs.com/blog/878193/201612/878193-20161209145226351-1330114500.png" alt="" style="border:0px;" /></p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);"> </p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);"><span>1.smtplib模块</span></p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">smtplib使用较为简单。以下是最基本的语法。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">导入及使用方法如下：</p><div class="cnblogs_code" style="border:1px solid rgb(204,204,204);color:rgb(0,0,0);text-align:left;font-family:'Courier New';font-size:12px;background-color:rgb(245,245,245);"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="line-height:1.5;"><a title="复制代码" style="color:rgb(100,102,179);text-decoration:underline;border:none;"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码" style="border:none;" /></a></span></div><pre style="font-family:'Courier New';"><span style="color:rgb(0,0,255);line-height:1.5;">import</span><span style="line-height:1.5;"> smtplib
+
+smtp </span>=<span style="line-height:1.5;"> smtplib.SMTP() 
+smtp.connect(</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">smtp.163.com,25</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">) 
+smtp.login(username, password) 
+smtp.sendmail(sender, receiver, msg.as_string()) 
+smtp.quit()</span></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="line-height:1.5;"><a title="复制代码" style="color:rgb(100,102,179);text-decoration:underline;border:none;"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码" style="border:none;" /></a></span></div></div><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">说明：</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">smtplib.SMTP()：实例化SMTP()</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">connect(host,port):</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">host:指定连接的邮箱服务器。常用邮箱的smtp服务器地址如下：</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">新浪邮箱：smtp.sina.com,新浪VIP：smtp.vip.sina.com,搜狐邮箱：smtp.sohu.com，126邮箱：smtp.126.com,139邮箱：smtp.139.com,163网易邮箱：smtp.163.com。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">port：指定连接服务器的端口号，默认为25.</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">login(user,password):</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">user:登录邮箱的用户名。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">password：登录邮箱的密码，像笔者用的是网易邮箱，网易邮箱一般是网页版，需要用到客户端密码，需要在网页版的网易邮箱中设置授权码，该授权码即为客户端密码。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">sendmail(from_addr,to_addrs,msg,...):</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">from_addr:邮件发送者地址</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">to_addrs:邮件接收者地址。<span style="color:rgb(255,0,0);">字符串列表['接收地址1','接收地址2','接收地址3',...]</span>或'接收地址'</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">msg：发送消息：邮件内容。一般是msg.as_string():as_string()是将msg(MIMEText对象或者MIMEMultipart对象)变为str。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">quit():用于结束SMTP会话。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);"> </p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);"><span>2.email模块</span></p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">email模块下有mime包，mime英文全称为“Multipurpose Internet Mail Extensions”，即多用途互联网邮件扩展，是目前互联网电子邮件普遍遵循的邮件技术规范。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">该mime包下常用的有三个模块：<span>text<span>，image，</span>multpart</span>。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">导入方法如下：</p><div class="cnblogs_code" style="border:1px solid rgb(204,204,204);color:rgb(0,0,0);text-align:left;font-family:'Courier New';font-size:12px;background-color:rgb(245,245,245);"><pre style="font-family:'Courier New';"><span style="line-height:1.5;">from email.mime.multipart import<span style="line-height:1.5;"> MIMEMultipart    
+from email.mime.text import<span style="line-height:1.5;"> MIMEText    
+from email.mime.image import MIMEImage</span></span></span></pre></div><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">构造一个邮件对象就是一个<code>Message</code>对象，如果构造一个<code>MIMEText</code>对象，就表示一个文本邮件对象，如果构造一个<code>MIMEImage</code>对象，就表示一个作为附件的图片，要把多个对象组合起来，就用<code>MIMEMultipart</code>对象，而<code>MIMEBase</code>可以表示任何对象。它们的继承关系如下：</p><pre style="color:rgb(57,57,57);font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);"><code class="undefined">Message
++- MIMEBase
+   +- MIMEMultipart
+   +- MIMENonMultipart
+      +- MIMEMessage
+      +- MIMEText
+      +- MIMEImage</code></pre><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">2.1 text说明</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">邮件发送程序为了防止有些邮件阅读软件不能显示处理HTML格式的数据，通常都会用两类型分别为"text/plain"和"text/html"</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">构造MIMEText对象时，第一个参数是邮件正文，第二个参数是MIME的subtype，最后一定要用utf-8编码保证多语言兼容性。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">2.1.1添加普通文本</p><div class="cnblogs_code" style="border:1px solid rgb(204,204,204);color:rgb(0,0,0);text-align:left;font-family:'Courier New';font-size:12px;background-color:rgb(245,245,245);"><pre style="font-family:'Courier New';">text = <span style="color:rgb(128,0,0);line-height:1.5;">"</span><span style="color:rgb(128,0,0);line-height:1.5;">Hi!\nHow are you?\nHere is the link you wanted:\nhttp://www.baidu.com</span><span style="color:rgb(128,0,0);line-height:1.5;">"</span><span style="line-height:1.5;">    
+text_plain </span>= MIMEText(text,<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">plain</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>, <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">utf-8</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>)    </pre></div><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">查看MIMEText属性：<span>可以观察到MIMEText，MIMEImage和MIMEMultipart的属性都一样。</span></p><div class="cnblogs_code" style="border:1px solid rgb(204,204,204);color:rgb(0,0,0);text-align:left;font-family:'Courier New';font-size:12px;background-color:rgb(245,245,245);"><pre style="font-family:'Courier New';"><span style="color:rgb(0,0,255);line-height:1.5;">print</span> dir(text_plain)</pre></div><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">['__contains__', '__delitem__', '__doc__', '__getitem__', '__init__', '__len__', '__module__', '__setitem__', '__str__', '_charset', '_default_type', '_get_params_preserve', '_headers', '_payload', '_unixfrom', 'add_header', 'as_string', 'attach', 'defects', 'del_param', 'epilogue', 'get', 'get_all', 'get_boundary', 'get_charset', 'get_charsets', 'get_content_charset', 'get_content_maintype', 'get_content_subtype', 'get_content_type', 'get_default_type', 'get_filename', 'get_param', 'get_params', 'get_payload', 'get_unixfrom', 'has_key', 'is_multipart', 'items', 'keys', 'preamble', 'replace_header', 'set_boundary', 'set_charset', 'set_default_type', 'set_param', 'set_payload', 'set_type', 'set_unixfrom', 'values', 'walk']</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">2.1.2添加超文本</p><div class="cnblogs_code" style="border:1px solid rgb(204,204,204);color:rgb(0,0,0);text-align:left;font-family:'Courier New';font-size:12px;background-color:rgb(245,245,245);"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="line-height:1.5;"><a title="复制代码" style="color:rgb(100,102,179);text-decoration:underline;border:none;"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码" style="border:none;" /></a></span></div><pre style="font-family:'Courier New';">html = <span style="color:rgb(128,0,0);line-height:1.5;">"""</span><span style="color:rgb(128,0,0);line-height:1.5;">
+&lt;html&gt;  
+  &lt;body&gt;  
+    &lt;p&gt; 
+       Here is the &lt;a href="http://www.baidu.com"&gt;link&lt;/a&gt; you wanted.
+    &lt;/p&gt; 
+  &lt;/body&gt;  
+&lt;/html&gt;  
+</span><span style="color:rgb(128,0,0);line-height:1.5;">"""</span><span style="line-height:1.5;">    
+text_html </span>= MIMEText(html,<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">html</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>, <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">utf-8</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>)  </pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="line-height:1.5;"><a title="复制代码" style="color:rgb(100,102,179);text-decoration:underline;border:none;"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码" style="border:none;" /></a></span></div></div><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">2.1.3添加附件</p><div class="cnblogs_code" style="border:1px solid rgb(204,204,204);color:rgb(0,0,0);text-align:left;font-family:'Courier New';font-size:12px;background-color:rgb(245,245,245);"><pre style="font-family:'Courier New';">sendfile=open(r<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">D:\pythontest\1111.txt</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>,<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">rb</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">).read()
+text_att </span>= MIMEText(sendfile, <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">base64</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>, <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">utf-8</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">)    
+text_att[</span><span style="color:rgb(128,0,0);line-height:1.5;">"</span><span style="color:rgb(128,0,0);line-height:1.5;">Content-Type</span><span style="color:rgb(128,0,0);line-height:1.5;">"</span>] = <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">application/octet-stream</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">    
+text_att[</span><span style="color:rgb(128,0,0);line-height:1.5;">"</span><span style="color:rgb(128,0,0);line-height:1.5;">Content-Disposition</span><span style="color:rgb(128,0,0);line-height:1.5;">"</span>] = <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">attachment; filename="显示的名字.txt"</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>  </pre></div><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);"> </p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">2.2 image说明</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">添加图片：</p><div class="cnblogs_code" style="border:1px solid rgb(204,204,204);color:rgb(0,0,0);text-align:left;font-family:'Courier New';font-size:12px;background-color:rgb(245,245,245);"><pre style="font-family:'Courier New';">sendimagefile=open(r<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">D:\pythontest\testimage.png</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>,<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">rb</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">).read()
+image </span>=<span style="line-height:1.5;"> MIMEImage(sendimagefile)
+image.add_header(</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">Content-ID</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>,<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">&lt;image1&gt;</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>)</pre></div><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">查看MIMEImage属性：</p><div class="cnblogs_code" style="border:1px solid rgb(204,204,204);color:rgb(0,0,0);text-align:left;font-family:'Courier New';font-size:12px;background-color:rgb(245,245,245);"><pre style="font-family:'Courier New';"><span style="color:rgb(0,0,255);line-height:1.5;">print</span> dir(image)</pre></div><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">['__contains__', '__delitem__', '__doc__', '__getitem__', '__init__', '__len__', '__module__', '__setitem__', '__str__', '_charset', '_default_type', '_get_params_preserve', '_headers', '_payload', '_unixfrom', 'add_header', 'as_string', 'attach', 'defects', 'del_param', 'epilogue', 'get', 'get_all', 'get_boundary', 'get_charset', 'get_charsets', 'get_content_charset', 'get_content_maintype', 'get_content_subtype', 'get_content_type', 'get_default_type', 'get_filename', 'get_param', 'get_params', 'get_payload', 'get_unixfrom', 'has_key', 'is_multipart', 'items', 'keys', 'preamble', 'replace_header', 'set_boundary', 'set_charset', 'set_default_type', 'set_param', 'set_payload', 'set_type', 'set_unixfrom', 'values', 'walk']</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);"> </p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">2.3 multpart说明</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">常见的multipart类型有三种：multipart/alternative, multipart/related和multipart/mixed。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">邮件类型为"multipart/alternative"的邮件包括纯文本正文（text/plain）和超文本正文（text/html）。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">邮件类型为"multipart/related"的邮件正文中包括图片，声音等内嵌资源。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">邮件类型为"multipart/mixed"的邮件包含附件。向上兼容，如果一个邮件有纯文本正文，超文本正文，内嵌资源，附件，则选择mixed类型。</p><div class="cnblogs_code" style="border:1px solid rgb(204,204,204);color:rgb(0,0,0);text-align:left;font-family:'Courier New';font-size:12px;background-color:rgb(245,245,245);"><pre style="font-family:'Courier New';">msg = MIMEMultipart(<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">mixed</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>)</pre></div><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">我们必须把Subject，From，To，Date添加到MIMEText对象或者MIMEMultipart对象中，邮件中才会显示主题，发件人，收件人，时间（若无时间，就默认一般为当前时间，该值一般不设置）。</p><div class="cnblogs_code" style="border:1px solid rgb(204,204,204);color:rgb(0,0,0);text-align:left;font-family:'Courier New';font-size:12px;background-color:rgb(245,245,245);"><pre style="font-family:'Courier New';">msg = MIMEMultipart(<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">mixed</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">) 
+msg[</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">Subject</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>] = <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">Python email test</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">
+msg[</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">From</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>] = <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">XXX@163.com &lt;XXX@163.com&gt;</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">
+msg[</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">To</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>] = <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">XXX@126.com</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">
+msg[</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">Date</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>]=<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">2012-3-16</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span></pre></div><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">查看MIMEMultipart属性：</p><div class="cnblogs_code" style="border:1px solid rgb(204,204,204);color:rgb(0,0,0);text-align:left;font-family:'Courier New';font-size:12px;background-color:rgb(245,245,245);"><pre style="font-family:'Courier New';">msg = MIMEMultipart(<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">mixed</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">) 
+</span><span style="color:rgb(0,0,255);line-height:1.5;">print</span> dir(msg) </pre></div><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">结果：</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">['__contains__', '__delitem__', '__doc__', '__getitem__', '__init__', '__len__', '__module__', '__setitem__', '__str__', '_charset', '_default_type', '_get_params_preserve', '_headers', '_payload', '_unixfrom', '<span style="color:rgb(255,0,0);">add_header</span>', '<span style="color:rgb(255,0,0);">as_string</span>', '<span style="color:rgb(255,0,0);">attach</span>', 'defects', 'del_param', 'epilogue', 'get', 'get_all', 'get_boundary', 'get_charset', 'get_charsets', 'get_content_charset', 'get_content_maintype', 'get_content_subtype', 'get_content_type', 'get_default_type', 'get_filename', 'get_param', 'get_params', 'get_payload', 'get_unixfrom', 'has_key', 'is_multipart', 'items', 'keys', 'preamble', 'replace_header', 'set_boundary', 'set_charset', 'set_default_type', 'set_param', 'set_payload', 'set_type', 'set_unixfrom', 'values', 'walk']</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">说明：</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">msg.add_header(_name,_value,**_params):添加邮件头字段。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">msg.as_string():是将msg(MIMEText对象或者MIMEMultipart对象)变为str,<span>如果只有一个html超文本正文或者plain普通文本正文的话，一般msg的类型可以是MIMEText；如果是多个的话，就都添加到MIMEMultipart，msg类型就变为MIMEMultipart。</span></p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">msg.attach(MIMEText对象或MIMEImage对象):将MIMEText对象或MIMEImage对象添加到MIMEMultipart对象中。MIMEMultipart对象代表邮件本身，MIMEText对象或MIMEImage对象代表邮件正文。</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">以上的构造的文本，超文本，附件，图片都何以添加到MIMEMultipart('mixed')中：</p><div class="cnblogs_code" style="border:1px solid rgb(204,204,204);color:rgb(0,0,0);text-align:left;font-family:'Courier New';font-size:12px;background-color:rgb(245,245,245);"><pre style="font-family:'Courier New';"><span style="line-height:1.5;">msg.attach(text_plain)    
+msg.attach(text_html)    
+msg.attach(text_att)    
+msg.attach(image)</span></pre></div><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);"> </p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);"><span>3.文字，html，图片，附件实现实例</span></p><div class="cnblogs_code" style="border:1px solid rgb(204,204,204);color:rgb(0,0,0);text-align:left;font-family:'Courier New';font-size:12px;background-color:rgb(245,245,245);"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="line-height:1.5;"><a title="复制代码" style="color:rgb(100,102,179);text-decoration:underline;border:none;"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码" style="border:none;" /></a></span></div><pre style="font-family:'Courier New';"><span style="color:rgb(0,128,0);line-height:1.5;">#</span><span style="color:rgb(0,128,0);line-height:1.5;">coding: utf-8    </span>
+  
+<span style="color:rgb(0,0,255);line-height:1.5;">import</span><span style="line-height:1.5;"> smtplib    
+</span><span style="color:rgb(0,0,255);line-height:1.5;">from</span> email.mime.multipart <span style="color:rgb(0,0,255);line-height:1.5;">import</span><span style="line-height:1.5;"> MIMEMultipart    
+</span><span style="color:rgb(0,0,255);line-height:1.5;">from</span> email.mime.text <span style="color:rgb(0,0,255);line-height:1.5;">import</span><span style="line-height:1.5;"> MIMEText    
+</span><span style="color:rgb(0,0,255);line-height:1.5;">from</span> email.mime.image <span style="color:rgb(0,0,255);line-height:1.5;">import</span><span style="line-height:1.5;"> MIMEImage 
+</span><span style="color:rgb(0,0,255);line-height:1.5;">from</span> email.header <span style="color:rgb(0,0,255);line-height:1.5;">import</span><span style="line-height:1.5;"> Header   
+    
+</span><span style="color:rgb(0,128,0);line-height:1.5;">#</span><span style="color:rgb(0,128,0);line-height:1.5;">设置smtplib所需的参数</span><span style="color:rgb(0,128,0);line-height:1.5;">
+#</span><span style="color:rgb(0,128,0);line-height:1.5;">下面的发件人，收件人是用于邮件传输的。</span>
+smtpserver = <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">smtp.163.com</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">
+username </span>= <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">XXX@163.com</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">
+password</span>=<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">XXX</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">
+sender</span>=<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">XXX@163.com</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>
+<span style="color:rgb(0,128,0);line-height:1.5;">#</span><span style="color:rgb(0,128,0);line-height:1.5;">receiver='XXX@126.com'</span><span style="color:rgb(0,128,0);line-height:1.5;">
+#</span><span style="color:rgb(0,128,0);line-height:1.5;">收件人为多个收件人</span>
+receiver=[<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">XXX@126.com</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>,<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">XXX@126.com</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">]
+
+subject </span>= <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">Python email test</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>
+<span style="color:rgb(0,128,0);line-height:1.5;">#</span><span style="color:rgb(0,128,0);line-height:1.5;">通过Header对象编码的文本，包含utf-8编码信息和Base64编码信息。以下中文名测试ok</span><span style="color:rgb(0,128,0);line-height:1.5;">
+#</span><span style="color:rgb(0,128,0);line-height:1.5;">subject = '中文标题'</span><span style="color:rgb(0,128,0);line-height:1.5;">
+#</span><span style="color:rgb(0,128,0);line-height:1.5;">subject=Header(subject, 'utf-8').encode()</span>
+    
+<span style="color:rgb(0,128,0);line-height:1.5;">#</span><span style="color:rgb(0,128,0);line-height:1.5;">构造邮件对象MIMEMultipart对象</span><span style="color:rgb(0,128,0);line-height:1.5;">
+#</span><span style="color:rgb(0,128,0);line-height:1.5;">下面的主题，发件人，收件人，日期是显示在邮件页面上的。</span>
+msg = MIMEMultipart(<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">mixed</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">) 
+msg[</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">Subject</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>] =<span style="line-height:1.5;"> subject
+msg[</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">From</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>] = <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">XXX@163.com &lt;XXX@163.com&gt;</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>
+<span style="color:rgb(0,128,0);line-height:1.5;">#</span><span style="color:rgb(0,128,0);line-height:1.5;">msg['To'] = 'XXX@126.com'</span><span style="color:rgb(0,128,0);line-height:1.5;">
+#</span><span style="color:rgb(0,128,0);line-height:1.5;">收件人为多个收件人,通过join将列表转换为以;为间隔的字符串</span>
+msg[<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">To</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>] = <span style="color:rgb(128,0,0);line-height:1.5;">"</span><span style="color:rgb(128,0,0);line-height:1.5;">;</span><span style="color:rgb(128,0,0);line-height:1.5;">"</span><span style="line-height:1.5;">.join(receiver) 
+</span><span style="color:rgb(0,128,0);line-height:1.5;">#</span><span style="color:rgb(0,128,0);line-height:1.5;">msg['Date']='2012-3-16'</span>
+
+<span style="color:rgb(0,128,0);line-height:1.5;">#</span><span style="color:rgb(0,128,0);line-height:1.5;">构造文字内容   </span>
+text = <span style="color:rgb(128,0,0);line-height:1.5;">"</span><span style="color:rgb(128,0,0);line-height:1.5;">Hi!\nHow are you?\nHere is the link you wanted:\nhttp://www.baidu.com</span><span style="color:rgb(128,0,0);line-height:1.5;">"</span><span style="line-height:1.5;">    
+text_plain </span>= MIMEText(text,<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">plain</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>, <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">utf-8</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">)    
+msg.attach(text_plain)    
+
+</span><span style="color:rgb(0,128,0);line-height:1.5;">#</span><span style="color:rgb(0,128,0);line-height:1.5;">构造图片链接</span>
+sendimagefile=open(r<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">D:\pythontest\testimage.png</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>,<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">rb</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">).read()
+image </span>=<span style="line-height:1.5;"> MIMEImage(sendimagefile)
+image.add_header(</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">Content-ID</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>,<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">&lt;image1&gt;</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">)
+image[</span><span style="color:rgb(128,0,0);line-height:1.5;">"</span><span style="color:rgb(128,0,0);line-height:1.5;">Content-Disposition</span><span style="color:rgb(128,0,0);line-height:1.5;">"</span>] = <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">attachment; filename="testimage.png"</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">
+msg.attach(image)
+
+</span><span style="color:rgb(0,128,0);line-height:1.5;">#</span><span style="color:rgb(0,128,0);line-height:1.5;">构造html</span><span style="color:rgb(0,128,0);line-height:1.5;">
+#</span><span style="color:rgb(0,128,0);line-height:1.5;">发送正文中的图片:由于包含未被许可的信息，网易邮箱定义为垃圾邮件，报554 DT:SPM ：&lt;p&gt;&lt;img src="cid:image1"&gt;&lt;/p&gt;</span>
+html = <span style="color:rgb(128,0,0);line-height:1.5;">"""</span><span style="color:rgb(128,0,0);line-height:1.5;">
+&lt;html&gt;  
+  &lt;head&gt;&lt;/head&gt;  
+  &lt;body&gt;  
+    &lt;p&gt;Hi!&lt;br&gt;  
+       How are you?&lt;br&gt;  
+       Here is the &lt;a href="http://www.baidu.com"&gt;link&lt;/a&gt; you wanted.&lt;br&gt; 
+    &lt;/p&gt; 
+  &lt;/body&gt;  
+&lt;/html&gt;  
+</span><span style="color:rgb(128,0,0);line-height:1.5;">"""</span><span style="line-height:1.5;">    
+text_html </span>= MIMEText(html,<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">html</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>, <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">utf-8</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">)
+text_html[</span><span style="color:rgb(128,0,0);line-height:1.5;">"</span><span style="color:rgb(128,0,0);line-height:1.5;">Content-Disposition</span><span style="color:rgb(128,0,0);line-height:1.5;">"</span>] = <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">attachment; filename="texthtml.html"</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">   
+msg.attach(text_html)    
+
+
+</span><span style="color:rgb(0,128,0);line-height:1.5;">#</span><span style="color:rgb(0,128,0);line-height:1.5;">构造附件</span>
+sendfile=open(r<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">D:\pythontest\1111.txt</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>,<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">rb</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">).read()
+text_att </span>= MIMEText(sendfile, <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">base64</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>, <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">utf-8</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">) 
+text_att[</span><span style="color:rgb(128,0,0);line-height:1.5;">"</span><span style="color:rgb(128,0,0);line-height:1.5;">Content-Type</span><span style="color:rgb(128,0,0);line-height:1.5;">"</span>] = <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">application/octet-stream</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>  
+<span style="color:rgb(0,128,0);line-height:1.5;">#</span><span style="color:rgb(0,128,0);line-height:1.5;">以下附件可以重命名成aaa.txt  </span><span style="color:rgb(0,128,0);line-height:1.5;">
+#</span><span style="color:rgb(0,128,0);line-height:1.5;">text_att["Content-Disposition"] = 'attachment; filename="aaa.txt"'</span><span style="color:rgb(0,128,0);line-height:1.5;">
+#</span><span style="color:rgb(0,128,0);line-height:1.5;">另一种实现方式</span>
+text_att.add_header(<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">Content-Disposition</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>, <span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">attachment</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span>, filename=<span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">aaa.txt</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">)
+</span><span style="color:rgb(0,128,0);line-height:1.5;">#</span><span style="color:rgb(0,128,0);line-height:1.5;">以下中文测试不ok</span><span style="color:rgb(0,128,0);line-height:1.5;">
+#</span><span style="color:rgb(0,128,0);line-height:1.5;">text_att["Content-Disposition"] = u'attachment; filename="中文附件.txt"'.decode('utf-8')</span>
+<span style="line-height:1.5;">msg.attach(text_att)    
+       
+</span><span style="color:rgb(0,128,0);line-height:1.5;">#</span><span style="color:rgb(0,128,0);line-height:1.5;">发送邮件</span>
+smtp =<span style="line-height:1.5;"> smtplib.SMTP()    
+smtp.connect(</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="color:rgb(128,0,0);line-height:1.5;">smtp.163.com</span><span style="color:rgb(128,0,0);line-height:1.5;">'</span><span style="line-height:1.5;">)
+</span><span style="color:rgb(0,128,0);line-height:1.5;">#</span><span style="color:rgb(0,128,0);line-height:1.5;">我们用set_debuglevel(1)就可以打印出和SMTP服务器交互的所有信息。</span><span style="color:rgb(0,128,0);line-height:1.5;">
+#</span><span style="color:rgb(0,128,0);line-height:1.5;">smtp.set_debuglevel(1)  </span>
+<span style="line-height:1.5;">smtp.login(username, password)    
+smtp.sendmail(sender, receiver, msg.as_string())    
+smtp.quit()</span></pre><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy" style="line-height:1.5;"><a title="复制代码" style="color:rgb(100,102,179);text-decoration:underline;border:none;"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码" style="border:none;" /></a></span></div></div><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">说明：</p><p style="color:rgb(57,57,57);font-family:verdana, 'ms song', Arial, Helvetica, sans-serif;font-size:14px;line-height:21px;text-align:left;background-color:rgb(250,247,239);">如果大家对add_header的入参有更多的了解（Content-Disposition，Content-Type，Content-ID），希望告诉我，谢谢。</p><br />            </div>
+                </div>
+			</article>
+	
+		<div class="article-bar-bottom">
+						<div class="tags-box artic-tag-box">
+			<span class="label">文章标签：</span>
+						<a data-track-click='{"mod":"popu_626","con":"python自动发邮件"}' data-track-view='{"mod":"popu_626","con":"python自动发邮件"}' class="tag-link" href="http://so.csdn.net/so/search/s.do?q=python自动发邮件&t=blog" target="_blank">python自动发邮件						</a>
+		</div>
+						<div class="tags-box">
+			<span class="label">个人分类：</span>
+						<a class="tag-link" href="https://blog.csdn.net/Songruibb/article/category/7603197"  target="_blank">python						</a>
+		</div>
+					</div>
+	</div>
+<script>
+    $(".MathJax").remove();
+</script>
+
+<!-- 博客详情页PC增加广告系统刷量代码 -->
+<div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+<script id="adJs52b5334"></script>
+<script>document.getElementById("adJs52b5334").src = "https://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+</div>
+
+<script>
+	(function(){
+		var btnReadmore = $("#btn-readmore");
+		if(btnReadmore.length>0){
+			var winH = $(window).height();
+			var articleBox = $("div.article_content");
+			var artH = articleBox.height();
+			if(artH > winH*2){
+				articleBox.css({
+					'height':winH*2+'px',
+					'overflow':'hidden'
+				})
+				btnReadmore.click(function(){
+					articleBox.removeAttr("style");
+					$(this).parent().remove();
+				})
+			}else{
+				btnReadmore.parent().remove();
+			}
+		}
+	})()
+</script>
+        <div class="p4course_target" ></div><script>window.p4sdk_enable_courseBox=true</script>        <a id="commentBox"></a>
+<div class="comment-box">
+	  	<div class="comment-edit-box d-flex">
+		<a id="commentsedit"></a>
+		<div class="user-img">
+			<img src="https://avatar.csdn.net/2/8/5/3_qq_41570526.jpg">
+		</div>
+		<form id="commentform">
+			<input type="hidden" id="comment_replyId">
+			<textarea class="comment-content" name="comment_content" id="comment_content" placeholder="想对作者说点什么"></textarea>
+			<div class="opt-box"> <!-- d-flex -->
+				<div id="ubbtools" class="add_code">
+					<a href="#insertcode" code="code" target="_self"><i class="icon iconfont icon-daima"></i></a>
+				</div>
+				<input type="hidden" id="comment_replyId" name="comment_replyId">
+				<input type="hidden" id="comment_userId" name="comment_userId" value="">
+				<input type="hidden" id="commentId" name="commentId" value="">
+				<div style="display: none;" class="csdn-tracking-statistics tracking-click" data-mod="popu_384"><a href="#" target="_blank" class="comment_area_btn">发表评论</a></div>
+				<div class="dropdown" id="myDrap">
+					<a class="dropdown-face d-flex align-items-center" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+					<div class="txt-selected text-truncate">添加代码片</div>
+					<svg class="icon d-block" aria-hidden="true">
+						<use xlink:href="#csdnc-triangledown"></use>
+					</svg>
+					</a>
+					<ul class="dropdown-menu" id="commentCode" aria-labelledby="drop4">
+						<li><a data-code="html">HTML/XML</a></li>
+						<li><a data-code="objc">objective-c</a></li>
+						<li><a data-code="ruby">Ruby</a></li>
+						<li><a data-code="php">PHP</a></li>
+						<li><a data-code="csharp">C</a></li>
+						<li><a data-code="cpp">C++</a></li>
+						<li><a data-code="javascript">JavaScript</a></li>
+						<li><a data-code="python">Python</a></li>
+						<li><a data-code="java">Java</a></li>
+						<li><a data-code="css">CSS</a></li>
+						<li><a data-code="sql">SQL</a></li>
+						<li><a data-code="plain">其它</a></li>
+					</ul>
+				</div>  
+				<div class="right-box">
+					<span id="tip_comment" class="tip">还能输入<em>1000</em>个字符</span>
+					<input type="submit" class="btn btn-sm btn-red btn-comment" value="发表评论">
+				</div>
+			</div>
+		</form>
+	</div>
+			<div class="comment-list-container">
+		<a id="comments"></a>
+		<div class="comment-list-box">
+		</div>
+		<div id="commentPage" class="pagination-box d-none"></div>
+		<div class="opt-box text-center">
+			<button class="btn btn-sm btn-link-blue" id="btnMoreComment"></button>
+		</div>
+	</div>
+</div>        <div class="recommend-box">
+            		<div class="recommend-item-box recommend-box-ident type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/galen2016/article/details/73610676,BlogCommendFromQuerySearch_0"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/galen2016/article/details/73610676,BlogCommendFromQuerySearch_0"}'>
+		<a href="https://blog.csdn.net/galen2016/article/details/73610676" target="_blank" title="<em>Python</em>-<em>自动</em><em>发邮件</em> 二">
+			<div class="content">
+				<h4 class="text-truncate oneline">
+						<em>Python</em>-<em>自动</em><em>发邮件</em> 二				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="avatar">
+							<img src="https://avatar.csdn.net/E/A/8/3_galen2016.jpg" alt="galen2016" class="avatar-pic">
+							<span class="namebox">
+								<span class="name">galen2016</span>
+								<span class="triangle"></span>
+							</span>
+					</p>
+					<p class="date-and-readNum">
+						<span class="date hover-show">06-22</span>
+						<span class="read-num hover-hide">
+							<svg class="icon csdnc-yuedushu" aria-hidden="true">
+								<use xlink:href="#csdnc-yuedushu"></use>
+							</svg>
+							1218</span>
+						</p>
+					</div>
+					<p class="content oneline">
+							上一篇博客介绍了如何使用python发送qq邮件，下面介绍怎么定时自动执行测试用例完并发送邮件...					</p>
+			</div>
+					</a>
+	</div>
+						<div class="recommend-item-box recommend-box-ident type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/Kevin_zhai/article/details/47720789,BlogCommendFromQuerySearch_1"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/Kevin_zhai/article/details/47720789,BlogCommendFromQuerySearch_1"}'>
+		<a href="https://blog.csdn.net/Kevin_zhai/article/details/47720789" target="_blank" title="【<em>Python</em>学习笔记】-<em>自动</em>发送邮件脚本">
+			<div class="content">
+				<h4 class="text-truncate oneline">
+						【<em>Python</em>学习笔记】-<em>自动</em>发送邮件脚本				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="avatar">
+							<img src="https://avatar.csdn.net/8/4/5/3_kevin_zhai.jpg" alt="Kevin_zhai" class="avatar-pic">
+							<span class="namebox">
+								<span class="name">Kevin_zhai</span>
+								<span class="triangle"></span>
+							</span>
+					</p>
+					<p class="date-and-readNum">
+						<span class="date hover-show">08-17</span>
+						<span class="read-num hover-hide">
+							<svg class="icon csdnc-yuedushu" aria-hidden="true">
+								<use xlink:href="#csdnc-yuedushu"></use>
+							</svg>
+							1.5万</span>
+						</p>
+					</div>
+					<p class="content oneline">
+							自动发送邮件功能是我们经常要用到的，比如每天定时统计报表信息，然后自动发送给运营人员，协助运营人员进行业务数据分析。本文是用Python写的一个自动发送邮件的脚本，调用函数时，直接把发件人邮箱地址、密...					</p>
+			</div>
+					</a>
+	</div>
+									<div class="recommend-item-box recommend-ad-box clearfix">
+					<script type="text/javascript" src="//rabc1.iteye.com/production/source/pc3553.js?pkcgstj=jm"></script>
+				</div>
+			
+					<div class="recommend-item-box recommend-box-ident type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/yangshuolll/article/details/48312989,BlogCommendFromQuerySearch_2"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/yangshuolll/article/details/48312989,BlogCommendFromQuerySearch_2"}'>
+		<a href="https://blog.csdn.net/yangshuolll/article/details/48312989" target="_blank" title="使用<em>python</em><em>自动</em>发送邮件">
+			<div class="content">
+				<h4 class="text-truncate oneline">
+						使用<em>python</em><em>自动</em>发送邮件				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="avatar">
+							<img src="https://avatar.csdn.net/E/F/5/3_yangshuolll.jpg" alt="yangshuolll" class="avatar-pic">
+							<span class="namebox">
+								<span class="name">yangshuolll</span>
+								<span class="triangle"></span>
+							</span>
+					</p>
+					<p class="date-and-readNum">
+						<span class="date hover-show">09-09</span>
+						<span class="read-num hover-hide">
+							<svg class="icon csdnc-yuedushu" aria-hidden="true">
+								<use xlink:href="#csdnc-yuedushu"></use>
+							</svg>
+							4022</span>
+						</p>
+					</div>
+					<p class="content oneline">
+							通过python编写的脚本能实现邮件的自动发送功能。
+以后就可以全自动的推送自己的广告软文了。嘿嘿嘿。。。。。
+
+
+现在记录一下这个功能。
+注意如果使用qq的smtp转发功能的话，需要在设置...					</p>
+			</div>
+					</a>
+	</div>
+						<div class="recommend-item-box recommend-box-ident type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/zhoujiong1004/article/details/60956056,BlogCommendFromQuerySearch_3"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zhoujiong1004/article/details/60956056,BlogCommendFromQuerySearch_3"}'>
+		<a href="https://blog.csdn.net/zhoujiong1004/article/details/60956056" target="_blank" title="<em>python</em>简单实现服务器信息<em>自动</em>邮件发送">
+			<div class="content">
+				<h4 class="text-truncate oneline">
+						<em>python</em>简单实现服务器信息<em>自动</em>邮件发送				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="avatar">
+							<img src="https://avatar.csdn.net/E/1/D/3_zhoujiong1004.jpg" alt="zhoujiong1004" class="avatar-pic">
+							<span class="namebox">
+								<span class="name">zhoujiong1004</span>
+								<span class="triangle"></span>
+							</span>
+					</p>
+					<p class="date-and-readNum">
+						<span class="date hover-show">03-09</span>
+						<span class="read-num hover-hide">
+							<svg class="icon csdnc-yuedushu" aria-hidden="true">
+								<use xlink:href="#csdnc-yuedushu"></use>
+							</svg>
+							692</span>
+						</p>
+					</div>
+					<p class="content oneline">
+							1、背景
+    As a tester，维护着测试环境10+台服务器，每台服务器上部署着若干个web应用，经常会出现服务器的一些OOM，磁盘占用100%，虽然有定期的一些脚本做清理，但是依然会经常...					</p>
+			</div>
+					</a>
+	</div>
+						<div class="recommend-item-box recommend-box-ident type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/u010035907/article/details/54232869,BlogCommendFromQuerySearch_4"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/u010035907/article/details/54232869,BlogCommendFromQuerySearch_4"}'>
+		<a href="https://blog.csdn.net/u010035907/article/details/54232869" target="_blank" title="<em>python</em>邮件<em>自动</em>发送">
+			<div class="content">
+				<h4 class="text-truncate oneline">
+						<em>python</em>邮件<em>自动</em>发送				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="avatar">
+							<img src="https://avatar.csdn.net/A/5/5/3_u010035907.jpg" alt="u010035907" class="avatar-pic">
+							<span class="namebox">
+								<span class="name">u010035907</span>
+								<span class="triangle"></span>
+							</span>
+					</p>
+					<p class="date-and-readNum">
+						<span class="date hover-show">01-08</span>
+						<span class="read-num hover-hide">
+							<svg class="icon csdnc-yuedushu" aria-hidden="true">
+								<use xlink:href="#csdnc-yuedushu"></use>
+							</svg>
+							1633</span>
+						</p>
+					</div>
+					<p class="content oneline">
+							case 1：纯文本和HTML文件发送
+# -*- coding: UTF-8 -*-
+
+
+import smtplib
+import traceback
+from email.mime.text i...					</p>
+			</div>
+					</a>
+	</div>
+						<div class="recommend-item-box recommend-box-ident type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/henni_719/article/details/60580593,BlogCommendFromQuerySearch_5"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/henni_719/article/details/60580593,BlogCommendFromQuerySearch_5"}'>
+		<a href="https://blog.csdn.net/henni_719/article/details/60580593" target="_blank" title="<em>Python</em><em>自动</em>发送邮件的脚本源码">
+			<div class="content">
+				<h4 class="text-truncate oneline">
+						<em>Python</em><em>自动</em>发送邮件的脚本源码				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="avatar">
+							<img src="https://avatar.csdn.net/B/1/2/3_henni_719.jpg" alt="henni_719" class="avatar-pic">
+							<span class="namebox">
+								<span class="name">henni_719</span>
+								<span class="triangle"></span>
+							</span>
+					</p>
+					<p class="date-and-readNum">
+						<span class="date hover-show">03-06</span>
+						<span class="read-num hover-hide">
+							<svg class="icon csdnc-yuedushu" aria-hidden="true">
+								<use xlink:href="#csdnc-yuedushu"></use>
+							</svg>
+							640</span>
+						</p>
+					</div>
+					<p class="content oneline">
+							#coding=utf8  
+'''
+该模块使自动发送邮件的模块
+模块初始化时需要设置：
+sender：发送人
+reciver：接收者
+smtpServer：发送人的服务器类型
+password：登录...					</p>
+			</div>
+					</a>
+	</div>
+								<div class="recommend-item-box recommend-ad-box">
+				<!--
+					data-tit-Style data-des-Style 是为了左字右图时文字对齐用的
+			 -->
+				<script
+								data-div-Style="background-image: url(//img-ads.csdn.net/2016/201608021757063065.png);background-repeat: no-repeat;background-position: bottom right;"
+								data-img-Style="float:left;width:96px;"
+								data-tit-Style="font-size:20px;font-weight:bold;margin-bottom:10px;font-family: 'PingFang SC', 'Microsoft YaHei', SimHei, Arial, SimSun;"
+								data-des-Style="color: #8e959a;line-height: 24px;font-size:14px;font-family: 'PingFang SC', 'Microsoft YaHei', SimHei, Arial, SimSun;"
+								async="async"
+								charset="utf-8"
+								data-notify="inforFlowMulti_notify"
+								data-pos="inline"
+								src="https://shared.ydstatic.com/js/yatdk/3.0.1/stream.js"
+								data-id="8935aa488dd58452b9e5ee3b44f1212f">
+				</script>
+			</div>
+						<div class="recommend-item-box recommend-box-ident type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/zishendianxia/article/details/77338344,BlogCommendFromQuerySearch_6"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/zishendianxia/article/details/77338344,BlogCommendFromQuerySearch_6"}'>
+		<a href="https://blog.csdn.net/zishendianxia/article/details/77338344" target="_blank" title="【项目实战】自监控-12-<em>自动</em>发送邮件">
+			<div class="content">
+				<h4 class="text-truncate oneline">
+						【项目实战】自监控-12-<em>自动</em>发送邮件				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="avatar">
+							<img src="https://avatar.csdn.net/5/8/1/3_zishendianxia.jpg" alt="zishendianxia" class="avatar-pic">
+							<span class="namebox">
+								<span class="name">zishendianxia</span>
+								<span class="triangle"></span>
+							</span>
+					</p>
+					<p class="date-and-readNum">
+						<span class="date hover-show">08-17</span>
+						<span class="read-num hover-hide">
+							<svg class="icon csdnc-yuedushu" aria-hidden="true">
+								<use xlink:href="#csdnc-yuedushu"></use>
+							</svg>
+							317</span>
+						</p>
+					</div>
+					<p class="content oneline">
+							使用Python结合Outlook自动发送邮件					</p>
+			</div>
+					</a>
+	</div>
+						<div class="recommend-item-box recommend-box-ident type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/l2show/article/details/57413359,BlogCommendFromQuerySearch_7"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/l2show/article/details/57413359,BlogCommendFromQuerySearch_7"}'>
+		<a href="https://blog.csdn.net/l2show/article/details/57413359" target="_blank" title="<em>Python</em> 发送邮件脚本">
+			<div class="content">
+				<h4 class="text-truncate oneline">
+						<em>Python</em> 发送邮件脚本				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="avatar">
+							<img src="https://avatar.csdn.net/6/1/D/3_l2show.jpg" alt="l2show" class="avatar-pic">
+							<span class="namebox">
+								<span class="name">l2show</span>
+								<span class="triangle"></span>
+							</span>
+					</p>
+					<p class="date-and-readNum">
+						<span class="date hover-show">02-26</span>
+						<span class="read-num hover-hide">
+							<svg class="icon csdnc-yuedushu" aria-hidden="true">
+								<use xlink:href="#csdnc-yuedushu"></use>
+							</svg>
+							3087</span>
+						</p>
+					</div>
+					<p class="content oneline">
+							在一些场景中经常需要发送邮件, 像是持续集成和运维报警等. 而使用Python脚本能够很快捷方便得实现发送各种邮件的需求.这里就通过Python基于SMTP(Simple Mail Transfer ...					</p>
+			</div>
+					</a>
+	</div>
+						<div class="recommend-item-box recommend-box-ident type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/qq6833288/article/details/80285709,BlogCommendFromQuerySearch_8"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/qq6833288/article/details/80285709,BlogCommendFromQuerySearch_8"}'>
+		<a href="https://blog.csdn.net/qq6833288/article/details/80285709" target="_blank" title="<em>Python</em>脚本——<em>自动</em>提醒发送邮件">
+			<div class="content">
+				<h4 class="text-truncate oneline">
+						<em>Python</em>脚本——<em>自动</em>提醒发送邮件				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="avatar">
+							<img src="https://avatar.csdn.net/7/8/7/3_qq6833288.jpg" alt="qq6833288" class="avatar-pic">
+							<span class="namebox">
+								<span class="name">qq6833288</span>
+								<span class="triangle"></span>
+							</span>
+					</p>
+					<p class="date-and-readNum">
+						<span class="date hover-show">05-13</span>
+						<span class="read-num hover-hide">
+							<svg class="icon csdnc-yuedushu" aria-hidden="true">
+								<use xlink:href="#csdnc-yuedushu"></use>
+							</svg>
+							318</span>
+						</p>
+					</div>
+					<p class="content oneline">
+							
+  小组要求每周五下班前要发送周报，但是我每次都忘记，虽然Foxmail邮箱能设置提醒，但还是想自己写个脚本来实现相关功能。
+
+
+主要功能：每周五晚上7点提醒我发送周报邮件。
+
+主要思路：
+
+
+发送...					</p>
+			</div>
+					</a>
+	</div>
+						<div class="recommend-item-box recommend-box-ident type_blog clearfix" data-track-view='{"mod":"popu_614","con":",https://blog.csdn.net/dkq972958298/article/details/78432704,BlogCommendFromQuerySearch_9"}' data-track-click='{"mod":"popu_614","con":",https://blog.csdn.net/dkq972958298/article/details/78432704,BlogCommendFromQuerySearch_9"}'>
+		<a href="https://blog.csdn.net/dkq972958298/article/details/78432704" target="_blank" title="iOS <em>自动</em>化打包发布测试平台后邮件通知测试人员（在Mac使用<em>Python</em>脚本发送邮件）">
+			<div class="content">
+				<h4 class="text-truncate oneline">
+						iOS <em>自动</em>化打包发布测试平台后邮件通知测试人员（在Mac使用<em>Python</em>脚本发送邮件）				</h4>
+				<div class="info-box d-flex align-content-center">
+					<p class="avatar">
+							<img src="https://avatar.csdn.net/1/7/3/3_dkq972958298.jpg" alt="dkq972958298" class="avatar-pic">
+							<span class="namebox">
+								<span class="name">dkq972958298</span>
+								<span class="triangle"></span>
+							</span>
+					</p>
+					<p class="date-and-readNum">
+						<span class="date hover-show">11-03</span>
+						<span class="read-num hover-hide">
+							<svg class="icon csdnc-yuedushu" aria-hidden="true">
+								<use xlink:href="#csdnc-yuedushu"></use>
+							</svg>
+							942</span>
+						</p>
+					</div>
+					<p class="content oneline">
+							在使用iOS 自动化打包成功之后，上传到发布平台之后，邮件通知测试人员，这样就不用在另外通知测试人员了。一切以自动化（偷懒）为目标的，嘿嘿。。。。 
+自动化打包脚本下载地址： 
+https://git...					</p>
+			</div>
+					</a>
+	</div>
+				
+            <div class="recommend-loading-box">
+                <img src='https://csdnimg.cn/release/phoenix/images/feedLoading.gif'>
+            </div>
+            <div class="recommend-end-box">
+                <p class="text-center">没有更多推荐了，<a href="https://blog.csdn.net/" class="c-blue c-blue-hover c-blue-focus">返回首页</a></p>
+            </div>
+        </div>
+    </main>
+    <aside>
+		    <div id="asideProfile" class="aside-box">
+    <h3 class="aside-title">个人资料</h3>
+    <div class="profile-intro d-flex">
+        <div class="avatar-box d-flex justify-content-center flex-column">
+            <a href="https://blog.csdn.net/Songruibb">
+                <img src="https://avatar.csdn.net/5/8/F/3_songruibb.jpg" class="avatar_pic">
+            </a>
+        </div>
+        <div class="user-info d-flex justify-content-center flex-column">
+            <p class="name csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                <a href="https://blog.csdn.net/Songruibb" target="_blank" class="text-truncate" id="uid">Songruibb</a>
+            </p>
+                    </div>
+                <div class="opt-box d-flex justify-content-center flex-column">
+            <span  class="csdn-tracking-statistics tracking-click" data-mod="popu_379">
+                                <a class="btn btn-sm btn-red-hollow" id="btnAttent">关注</a>
+                            </span>
+                    </div>
+            </div>
+    <div class="data-info d-flex item-tiling">
+                <dl class="text-center" title="15">
+                        <dt><a href="https://blog.csdn.net/songruibb?t=1">原创</a></dt>
+            <dd><a href="https://blog.csdn.net/songruibb?t=1"><span class="count">15</span></a></dd>
+                    </dl>
+        <dl class="text-center" title="4">
+            <dt>粉丝</dt>
+            <dd><span class="count" id="fan">4</span></dd>
+        </dl>
+        <dl class="text-center" title="3">
+            <dt>喜欢</dt>
+            <dd><span class="count">3</span></dd>
+        </dl>
+        <dl class="text-center" title="1">
+            <dt>评论</dt>
+            <dd><span class="count">1</span></dd>
+        </dl>
+    </div>
+    <div class="grade-box clearfix">
+        <dl>
+            <dt>等级：</dt>
+            <dd>
+                <a href="https://blog.csdn.net/home/help.html#level" title="2级,点击查看等级说明" target="_blank">
+                    <svg class="icon icon-level" aria-hidden="true">
+                        <use xlink:href="#csdnc-bloglevel-2"></use>
+                    </svg>
+                </a>
+            </dd>
+        </dl>
+        <dl>
+            <dt>访问：</dt>
+            <dd title="2672">
+                2672            </dd>
+        </dl>
+        <dl>
+            <dt>积分：</dt>
+            <dd title="238">
+                238            </dd>
+        </dl>
+        <dl title="1074654">
+            <dt>排名：</dt>
+            <dd>107万+</dd>
+        </dl>
+    </div>
+        <div class="badge-box d-flex">
+        <span>勋章：</span>
+                        <a class="icon-badge" title="持之以恒">
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#csdnc-m-lasting"></use>
+            </svg>
+            <div class="icon-arrow"></div>
+            <div class="grade-detail-box item2">
+                <div class="pos-box">
+                    <div class="left-box d-flex justify-content-center align-items-center flex-column">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#csdnc-m-lasting"></use>
+                        </svg>
+                        <p>持之以恒</p>
+                    </div>
+                    <div class="right-box d-flex justify-content-center align-items-center">
+                        授予每个自然月内发布4篇或4篇以上原创或翻译IT博文的用户。不积跬步无以至千里，不积小流无以成江海，程序人生的精彩需要坚持不懈地积累！
+                    </div>
+                </div>
+            </div>
+        </a>
+                            </div>
+    </div>		    <div class="csdn-tracking-statistics mb8 box-shadow" data-pid="blog" data-mod="popu_4" style="height:250px;">
+    <div class="aside-content text-center" id="cpro_u2734133">
+      <!-- 广告位：PC-博客内页-百度联盟-300x250 --><script type="text/javascript" src="//rabc1.iteye.com/common/production/web/z3n86.js?lg=yyovfyh"></script>    </div>
+</div>
+		    <div id="asideNewArticle" class="aside-box">
+    <h3 class="aside-title">最新文章</h3>
+    <div class="aside-content">
+        <ul class="inf_list clearfix csdn-tracking-statistics tracking-click" data-mod="popu_382">
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Songruibb/article/details/81904260" target="_blank">python 之 break continue</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Songruibb/article/details/81869232" target="_blank">python之random</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Songruibb/article/details/81838394" target="_blank">python 之list and tuple</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Songruibb/article/details/81778556" target="_blank">pytnon 之逻辑</a>
+            </li>
+                        <li class="clearfix">
+                <a href="https://blog.csdn.net/Songruibb/article/details/81738689" target="_blank">python之函数</a>
+            </li>
+                    </ul>
+    </div>
+</div>
+		    		    <div id="asideCategory" class="aside-box flexible-box">
+    <h3 class="aside-title">个人分类</h3>
+    <div class="aside-content">
+        <ul>
+                        <li>
+                <a href="https://blog.csdn.net/songruibb/article/category/7603197">
+                    python                    <span class="count float-right">20篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/songruibb/article/category/7637012">
+                    jemeter                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/songruibb/article/category/7639473">
+                    http                    <span class="count float-right">8篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/songruibb/article/category/7670755">
+                    测试用例编写                    <span class="count float-right">3篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/songruibb/article/category/7670757">
+                    散养地                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/songruibb/article/category/7738041">
+                    自动化测试                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/songruibb/article/category/7750741">
+                    测试总结                    <span class="count float-right">5篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/songruibb/article/category/7756087">
+                    测试管理                    <span class="count float-right">2篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/songruibb/article/category/7778943">
+                    协议                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/songruibb/article/category/7780167">
+                    抓包工具                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/songruibb/article/category/7781958">
+                    性能测试                    <span class="count float-right">1篇</span>
+                </a>
+            </li>
+                        <li>
+                <a href="https://blog.csdn.net/songruibb/article/category/7782778">
+                    数据库                    <span class="count float-right">6篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+        <p class="text-center">
+        <a class="btn btn-link-blue flexible-btn" data-fbox="aside-archive">展开</a>
+    </p>
+    </div>
+		    <div id="asideArchive" class="aside-box">
+    <h3 class="aside-title">归档</h3>
+    <div class="aside-content">
+        <ul class="archive-list">
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/songruibb/article/month/2018/08">
+                    2018年8月                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/songruibb/article/month/2018/07">
+                    2018年7月                    <span class="count float-right">17篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/songruibb/article/month/2018/06">
+                    2018年6月                    <span class="count float-right">14篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/songruibb/article/month/2018/05">
+                    2018年5月                    <span class="count float-right">11篇</span>
+                </a>
+            </li>
+                        <!--归档统计-->
+            <li>
+                <a href="https://blog.csdn.net/songruibb/article/month/2018/04">
+                    2018年4月                    <span class="count float-right">4篇</span>
+                </a>
+            </li>
+                    </ul>
+    </div>
+    </div>
+		    <div id="asideNewComments" class="aside-box">
+    <h3 class="aside-title">最新评论</h3>
+    <div class="aside-content">
+        <ul class="newcomment-list">
+                        <li>
+                <a class="title text-truncate" target="_blank" href="https://blog.csdn.net/songruibb/article/details/80348690#comments">web测试用例检查点总结</a>
+                <p class="comment">
+                    <a href="https://my.csdn.net/Songruibb" class="user-name" target="_blank">Songruibb</a>：为记录持续点赞                </p>
+            </li>
+                    </ul>
+    </div>
+</div>
+		<div id="asideFooter">
+			
+		<div class="aside-box">
+						<script type="text/javascript" src="//rabc1.iteye.com/common/site/resource/nqnl.js?mhzzpw=gzj"></script>
+					</div>
+				<div class="aside-box">
+			<div class="persion_article">
+			</div>
+		</div>
+	</div>
+</aside>
+<script src="https://csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false" type="text/javascript"></script>
+<script>
+	$("a.flexible-btn").click(function(){
+		$(this).parents('div.aside-box').removeClass('flexible-box');
+		$(this).remove();
+	})
+</script>
+</div>
+<div class="mask-dark"></div>
+<div class="tool-box">
+	<ul class="meau-list">
+		<li>
+			<button class="long-height hover-box btn-like " title="点赞">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup-ok"></use>
+				</svg><svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-thumbsup"></use>
+				</svg>
+				<span class="hover-show text-box text">
+					<span class="no-active">点赞</span>
+					<span class="active">取消点赞</span>
+				</span>
+				<p>0</p>
+			</button>
+		</li>
+		<li>
+						
+			<a class="btn-comments low-height hover-box" title="写评论" href="#commentBox">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-comments"></use>
+				</svg>
+				<span class="hover-show text">评论</span>
+				<p class="">
+										</p>
+			</a>
+		</li>
+		<li class="toc-container-box" id="liTocBox">
+			<button class="btn-toc low-height hover-box" title="目录">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-contents"></use>
+				</svg>
+				<span class="hover-show text">目录</span>
+			</button>
+			<div class="toc-container">
+				<div class="pos-box">
+					<div class="icon-arrow"></div>
+					<div class="scroll-box">
+						<div class="toc-box"></div>
+					</div>
+				</div>
+				<div class="opt-box">
+					<button class="btn-opt prev nomore" title="向上">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevronup"></use>
+						</svg>
+					</button>
+					<button class="btn-opt next">
+						<svg class="icon" aria-hidden="true">
+							<use xlink:href="#csdnc-chevrondown"></use>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</li>
+		<li>
+			<button class="btn-bookmark low-height hover-box" title="收藏">
+				<svg class="icon active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark-ok"></use>
+				</svg>
+				<svg class="icon no-active hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-bookmark"></use>
+				</svg>
+					<span class="hover-show text">收藏</span>
+				<!-- <span class="hover-show text-box text">
+					<span class="no-active">收藏</span>
+					<span class="active">取消收藏</span>
+				</span> -->
+			</button>
+		</li>
+				<li class="bdsharebuttonbox">
+			<button class="btn-comments low-height hover-box" >
+				<a href="#" class="bds_weixin clear-share-style" data-cmd="weixin" title="手机看"></a>
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-wechat"></use>
+				</svg>
+				<span class="hover-show text">
+					手机看
+				</span>
+			</button>
+		</li>
+								<li class="">
+			<a class="btn-comments hover-box low-height" href="https://blog.csdn.net/songruibb/article/details/80008495" title="python路径描述方式">
+				<svg class="icon hover-hide" aria-hidden="true">
+					<use xlink:href="#csdnc-xiayiye"></use>
+				</svg>
+				<span class="hover-show text">下一篇</span>
+			</a>
+		</li>
+					</ul>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'https://csdnimg.cn/static/api/js/share.js?v=89860594'];</script>
+<script>
+    var recommendCount = 10;
+    recommendCount = recommendCount > 1 ? (recommendCount + (recommendCount>6 ? 2 : 1)) : recommendCount;
+    var articleTit = "python自动发邮件";
+    var ChannelId = 16;
+    var articleId = "79999688";
+    var commentscount = 0;
+    var islock = false;
+    var curentUrl = "https://blog.csdn.net/Songruibb/article/details/79999688";
+    var myUrl = "https://my.csdn.net/";
+    //1禁止评论，2正常
+    var commentAuth = 2;
+    //百度搜索
+    var baiduKey = "";
+    var needInsertBaidu = true;
+    // 代码段样式
+    var codeStyle = '';
+    var highlight = ["python","\u81ea\u52a8","\u53d1\u90ae\u4ef6"];//高亮数组
+</script>
+<script src="https://csdnimg.cn/public/sandalstrap/1.3/js/sandalstrap.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/vendor/pagination/paging.js"></script>
+<script src='https://csdnimg.cn/public/common/gotop/js/goTop-v1.0.min.js?v201803151422'></script>
+<script>
+    GoTop({
+        right: 8,
+        hasReport: true,
+        reportFun: function() {
+            showReport(false,"python自动发邮件");
+        }
+    })
+</script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/common-4d72a3f9df.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/template/js/detail-94797e0e8d.min.js"></script>
+<script src="https://csdnimg.cn/release/phoenix/themes/skin-yellow/skin-yellow-9376486353.min.js"></script>
+</body>
+<div class="box-box-aways">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <div id="adAways">
+        <script>
+            (function() {
+            (window.slotbydup=window.slotbydup || []).push({
+            id: '5868728',
+            container: 'adAways',
+            size: '250,500',
+            display: 'inlay-fix'
+            });
+            })();
+            </script>
+        <script src="https://dup.baidustatic.com/js/os.js"></script>
+    </div>
+</div>
+<div class="box-box-default">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//rabc1.iteye.com/common/web/9lqf6q.js?mh=zzjepzz"></script>
+</div>
+<div class="box-box-large">
+    <a class="btn-remove">
+        关闭
+    </a>
+    <script type="text/javascript" src="//rabc1.iteye.com/site/web/iv1mdp.js?id=vveasfs"></script>
+</div>
+<!-- 第四范式SDK -->
+
+<!-- 高亮未与 markdown兼容  -->
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/chart.css" />
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/lib/chart.min.js"></script>
+	<script type="text/javascript" src="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/chart/widget2chart.js"></script>
+	<link rel="stylesheet" href="https://csdnimg.cn/release/blog_editor_html/release1.3.1/ckeditor/plugins/codesnippet/lib/highlight/styles/atom-one-dark.css">
+	<script type="text/javascript" src="https://csdnimg.cn/release/phoenix/production/pc_wap_common-93244aa03c.js" /></script>
+
+	<script type="text/javascript">
+	$(function(){
+		var allEscRegex = /&(lt|gt|amp|quot|nbsp|shy|#\d{1,5});/g,
+		    namedEntities = {
+					lt: '<',
+					gt: '>',
+					amp: '&',
+					quot: '"',
+					nbsp: '\u00a0',
+					shy: '\u00ad'
+				}
+		var allEscDecode = function( match, code ) {
+				return namedEntities[ code ];
+		};
+		htmlDecodeAttr = function( text ) {
+				return text.replace( allEscRegex, allEscDecode );
+		}
+	  hljs.initHighlightingOnLoad();
+	  hljs.initCopyButtonOnLoad();
+	  hljs.initLineNumbersOnLoad();
+		if($('pre .language-plain').length>0){
+			$('pre .language-plain').each(function(i,e){
+				var highlightRe = hljs.highlightAuto(htmlDecodeAttr(e.innerHTML))
+				e.innerHTML = highlightRe.value;
+				e.className = 'language-'+highlightRe.language;
+			});
+		}
+	})
+	</script>
+<script type="text/javascript" src="https://static-blog.csdn.net/mdeditor/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            "HTML-CSS": {
+                    linebreaks: { automatic: true, width: "94%container" },
+                    imageFont: null
+            },
+            tex2jax: {
+                preview: "none"
+            },
+            mml2jax: {
+                preview: 'none'
+            }
+    });
+</script>
+</html>
